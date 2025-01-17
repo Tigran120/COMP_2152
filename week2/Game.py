@@ -1,22 +1,21 @@
-from random import random
+from random import choice
 
-game=["Rock","Paper","Scissor"]
-computer=random.choice(game)
-x = input('Enter your choice: Rock, Paper, Scissor:')
-if x=='Rock' and computer=='Rock':
-    print("It's a tie!");
-elif x=='Rock' and computer=='Paper':
-    print("Computer wins!");
-elif x=='Rock' and computer=='Scissor':
-    print("Player wins!");
-elif x=='Paper' and computer=='Paper':
-    print("It's a tie!");
-elif x=='Paper' and computer=='Scissor':
-    print("Computer wins!");
-elif x=='Scissor' and computer=='Scissor':
-    print("It's a tie!");
-elif x=='Scissor' and computer=='Rock':
-    print("Computer wins!");
-elif x=='Scissor' and computer=='Paper':
-    print("Player wins!");
-elif x=='Scissor' and computer=='Scissor':
+options = ["Rock", "Paper", "Scissor"]
+computer = choice(options)
+player = input("Enter your choice (Rock, Paper, Scissor): ")
+
+print(f"You chose {player}, Computer chose {computer}.")
+
+# Check for tie
+if player == computer:
+    print("Looks like we're evenly matched.")
+# Check for player win
+elif (
+    (player == "Rock" and computer == "Scissor") or
+    (player == "Paper" and computer == "Rock") or
+    (player == "Scissor" and computer == "Paper")
+):
+    print("You got lucky this time...")
+# If not tie or player win, then the computer wins
+else:
+    print("Better luck next time!")
